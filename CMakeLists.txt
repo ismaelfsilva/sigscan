@@ -11,3 +11,8 @@ target_include_directories(sigscan PUBLIC include)
 add_executable(sigscan_cli src/main.cpp)
 set_target_properties(sigscan_cli PROPERTIES OUTPUT_NAME sigscan)
 target_link_libraries(sigscan_cli PRIVATE sigscan)
+
+enable_testing()
+add_executable(test_sigscan tests/test_sigscan.cpp)
+target_link_libraries(test_sigscan PRIVATE sigscan)
+add_test(NAME test_sigscan COMMAND test_sigscan)
